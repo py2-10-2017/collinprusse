@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Results</title>
+  </head>
+  <body>
+    <div id="container">
+        <h4>You have submitted this form {{ request.session.tries }} times.</h4>
+      <h1>Submitted Info:</h1>
+      <h5>Name: {{ request.session.name }}</h5>
+      <h5>Dojo Location: {{ request.session.location }}</h5>
+      <h5>Favorite Language: {{ request.session.language }}</h5>
+      <h5>Comment: {{ request.session.desc }}</h5>
+      <br>
+      <form action='/' method='get'>
+      <input type='submit' value='Go Back'>
+      </form>
+    </div>
+
+  </body>
+</html>
