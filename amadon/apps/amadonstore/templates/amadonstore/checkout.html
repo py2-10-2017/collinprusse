@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Checkout</title>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Thank you for your purchase!</h1>
+            <p>We have charged your credit card for ${{ request.session.last_transaction }}</p>
+            <p>You have ordered {{ request.session.total_items }} items so far for a total of ${{ request.session.running_total }}.</p>
+            <a href="/">Go Back</a>
+        </div>
+
+    </body>
+</html>
