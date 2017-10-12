@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.location{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline-block;
+}
+#container {
+    text-align: center;
+}
+h1{
+    margin: 15px;
+}
+#goldnum{
+    margin-bottom: 15px;
+}
+#log{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 375px;
+    border: 1px solid black;
+
+}
+form{
+    margin-top: 45px;
+}
