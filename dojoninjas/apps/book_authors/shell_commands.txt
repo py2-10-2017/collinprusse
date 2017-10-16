@@ -1,0 +1,69 @@
+from apps.book_authors.models import books
+from apps.book_authors.models import author
+
+Create 5 books with the following names: C sharp, Java, Python, PHP, Ruby
+books.objects.create(name="C sharp")
+books.objects.create(name="Java")
+books.objects.create(name="Python")
+books.objects.create(name="PHP")
+books.objects.create(name="Ruby")
+
+
+Create 5 different authors: Mike, Speros, John, Jadee, Jay
+author.objects.create(first_name="Mike")
+author.objects.create(first_name="Speros")
+author.objects.create(first_name="John")
+author.objects.create(first_name="Jadee")
+author.objects.create(first_name="Jay")
+
+Add a new field in the authors table called 'notes'.  Make this a TextField.  Successfully create and run the migration files.
+
+Change the name of the 5th book to C#
+b = books.objects.get(id=5)
+b.name = "C#"
+b.save()
+
+Change the first_name of the 5th author to Ketul
+a = author.objects.get(id=5)
+a.first_name = "Ketul"
+a.save()
+
+Assign the first author to the first 2 books
+
+author.objects.get(id=1).books.add(books.objects.get(id=1))
+author.objects.get(id=1).books.add(books.objects.get(id=2))
+
+Assign the second author to the first 3 books
+author.objects.get(id=2).books.add(books.objects.get(id=1))
+author.objects.get(id=2).books.add(books.objects.get(id=2))
+author.objects.get(id=2).books.add(books.objects.get(id=3))
+
+Assign the third author to the first 4 books
+author.objects.get(id=3).books.add(books.objects.get(id=1))
+author.objects.get(id=3).books.add(books.objects.get(id=2))
+author.objects.get(id=3).books.add(books.objects.get(id=3))
+author.objects.get(id=3).books.add(books.objects.get(id=4))
+
+Assign the fourth author to the first 5 books (or in other words, all the books)
+author.objects.get(id=4).books.add(books.objects.get(id=1))
+author.objects.get(id=4).books.add(books.objects.get(id=2))
+author.objects.get(id=4).books.add(books.objects.get(id=3))
+author.objects.get(id=4).books.add(books.objects.get(id=4))
+author.objects.get(id=4).books.add(books.objects.get(id=5))
+
+For the 3rd book, retrieve all the authors
+author.objects.filter(books=books.objects.get(id=3))
+
+For the 3rd book, remove the first author
+c = author.objects.filter(books=books.objects.get(id=3)).first()
+c.first_name = ""
+c.save()
+
+For the 2nd book, add the 5th author as one of the authors
+author.objects.get(id=5).books.add(books.objects.get(id=2))
+
+Find all the books that the 3rd author is part of
+books.objects.filter(authors=author.objects.get(id=3))
+
+Find all the books that the 2nd author is part of
+books.objects.filter(authors=author.objects.get(id=2))

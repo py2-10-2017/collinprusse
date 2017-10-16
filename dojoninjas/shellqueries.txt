@@ -1,0 +1,41 @@
+>>> from apps.dojo_ninjas.models import dojos
+>>> from apps.dojo_ninjas.models import ninjas
+
+
+Create 3 dojos
+
+dojos.objects.create(name="CodingDojo Silicon Valley", city="Mountain View", state="CA")
+dojos.objects.create(name="CodingDojo Seattle", city="Seattle", state="WA")
+dojos.objects.create(name="CodingDojo New York", city="New York", state="NY")
+
+Delete the three dojos you created (e.g. Dojo.objects.get(id=1).delete())
+
+dojos.objects.get(id=1).delete()
+dojos.objects.get(id=2).delete()
+dojos.objects.get(id=3).delete()
+
+Create 3 additional dojos by using Dojo.objects.create
+
+dojos.objects.create(name="CodingDojo Silicon Valley", city="Mountain View", state="CA")
+dojos.objects.create(name="CodingDojo Seattle", city="Seattle", state="WA")
+dojos.objects.create(name="CodingDojo New York", city="New York", state="NY")
+
+Create 3 ninjas that belong to the first dojo you created.
+ninjas.objects.create(first_name="Gary", last_name="Stevens", dojos=dojos.objects.get(id=1))
+ninjas.objects.create(first_name="Dave", last_name="Davidson", dojos=dojos.objects.get(id=1))
+ninjas.objects.create(first_name="Larry", last_name="Thomas", dojos=dojos.objects.get(id=1))
+
+Create 3 more ninjas and have them belong to the second dojo you created.
+ninjas.objects.create(first_name="Sven", last_name="Jorgensen", dojos=dojos.objects.get(id=2))
+ninjas.objects.create(first_name="Roger", last_name="Rogers", dojos=dojos.objects.get(id=2))
+ninjas.objects.create(first_name="Bob", last_name="Evans", dojos=dojos.objects.get(id=2))
+
+Create 3 more ninjas and have them belong to the third dojo you created.
+ninjas.objects.create(first_name="Kelly", last_name="Parker", dojos=dojos.objects.get(id=3))
+ninjas.objects.create(first_name="Kevin", last_name="Dolittle", dojos=dojos.objects.get(id=3))
+ninjas.objects.create(first_name="Mike", last_name="Michaels", dojos=dojos.objects.get(id=3))
+
+Be able to retrieve all ninjas that belong to the first Dojo
+ninjas.objects.filter(dojos=dojos.objects.get(id=1))
+Be able to retrieve all ninjas that belong to the last Dojo
+ninjas.objects.filter(dojos=dojos.objects.get(id=3))
